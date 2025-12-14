@@ -2,48 +2,39 @@ package stack;
 public class Stack{
     private int size;
     private node top;
-
-    Stack(){ // constructor
+    Stack(){ // constructor for stack
         size = 0;
         top = null;
     }
-    private static class node{
-        node above;
-        node below;
+
+    private static class node{ // private class for nodes, main will not use it
+        node tail;
         int var;
 
-        node (int var){
+        node (int var){ // constructor for nodes
             this.var = var;
-            above = null;
-            below = null;
+            tail = null;
         }
     }
 
-    public void push(int var){
+    public void push(int var){ // push a new value to the top of the stack
         if (isEmpty()){
             top = new node(var);
             size++;
             return;
         }
         node n = new node(var);
-        node temp = top;
+        n.tail = top;
         top = n;
-        n.below = temp;
         size++;
-
     }
-    public int pop(){
+
+    public int pop(){ // remove next value from stack & update top
         if (isEmpty()){
-            System.out.println("Sorry, the stack is empty! returning 999");
-            return 999;
+            throw new IllegalStateException("Stack is Empty!");
         }
         int var = top.var;
-        if (top.below == null){
-            top = null;
-        }
-        else{
-            top = top.below;
-        }
+        top = top.tail;
         size--;
         return var;
     }
@@ -51,40 +42,38 @@ public class Stack{
     public int getSize(){
         return this.size;
     }
-    public int peek(){
+
+    public int peek(){ // check top value on stack without popping it
         if (isEmpty()){
-            System.out.println("Sorry, the stack is empty! returning 999");
-            return 999;
+            throw new IllegalStateException("Stack is Empty!");
         }
         return top.var;
     }
 
-    public int peeknxt(){
+    public int peeknxt(){ // not normally in a stack, but an interesting thing to add anyway
         if (top == null){
-            System.out.println("Sorry, the stack is empty! returning 999");
-            return 999;
+            throw new IllegalStateException("Stack is Empty!");
         }
-        else if (top.below == null){
-            System.out.println("Sorry, not enough values on the stack! returning 999");
-            return 999;
+        else if (top.tail == null){
+            throw new IllegalStateException("Not Enough Values!");
         }
-        return top.below.var;
+        return top.tail.var;
     }
 
-    public void display(){
+    public void display(){ // utilizes displayStack to display the stack
         if (isEmpty()){
-            System.out.println("Sorry, the stack is empty! returning!");
+            System.out.println("Stack is Empty!");
             return;
         }
         displayStack(top, 0);
     }
 
-    private boolean displayStack(node n, int position){
+    private boolean displayStack(node n, int position){ // private function to recursively display the stack
         System.out.printf("Position %d: %d\n",position, n.var);
-        if (n.below == null){
+        if (n.tail == null){
             return true;
         }
-        return displayStack(n.below, position += 1);
+        return displayStack(n.tail, position += 1); // recursive step
     }
 
     private boolean isEmpty(){
