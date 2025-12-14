@@ -1,17 +1,17 @@
 package stack;
 public class Stack{
     private int size;
-    private node top;
+    private Node top;
     Stack(){ // constructor for stack
         size = 0;
         top = null;
     }
 
-    private static class node{ // private class for nodes, main will not use it
-        node tail;
+    private static class Node{ // private class for nodes, main will not use it
+        Node tail;
         int var;
 
-        node (int var){ // constructor for nodes
+        Node (int var){ // constructor for nodes
             this.var = var;
             tail = null;
         }
@@ -19,11 +19,11 @@ public class Stack{
 
     public void push(int var){ // push a new value to the top of the stack
         if (isEmpty()){
-            top = new node(var);
+            top = new Node(var);
             size++;
             return;
         }
-        node n = new node(var);
+        Node n = new Node(var);
         n.tail = top;
         top = n;
         size++;
@@ -68,7 +68,7 @@ public class Stack{
         displayStack(top, 0);
     }
 
-    private boolean displayStack(node n, int position){ // private function to recursively display the stack
+    private boolean displayStack(Node n, int position){ // private function to recursively display the stack
         System.out.printf("Position %d: %d\n",position, n.var);
         if (n.tail == null){
             return true;
