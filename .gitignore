@@ -1,0 +1,26 @@
+# JetBrains IDE folders
+.idea/
+*.iml
+
+# NetBeans (only ignore the private folder, NOT the entire nbproject/)
+nbproject/private/
+
+# Build output
+out/
+target/
+build/
+bin/
+dist/
+
+# Java compiled classes
+*.class
+
+# Logs
+*.log
+
+# JARs and compiled artifacts
+*.jar
+
+# OS junk
+.DS_Store
+Thumbs.db
