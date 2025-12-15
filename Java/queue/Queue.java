@@ -5,7 +5,7 @@ public class Queue {
     private Node back;
     private int size;
 
-    private class Node {
+    private static class Node {
         int var;
         Node tail;
 
@@ -38,17 +38,17 @@ public class Queue {
         if(isEmpty()){
             throw new IllegalStateException("Queue is Empty!"); // cant dequeue something that doesn't exist
         }
-
         int n = front.var; // get our name before deleting anything
 
-        if(front == back){ // if size = 1 we need to set it back to null otherwise we will have a infinite loop
+        if(front == back){ // if size = 1, dequeue the remaining item to empty queue
+            front = null;
             back = null;
             size--;
+            return n;
         }
 
         front = front.tail; // set the front to the tail cutting it off the list
         size--;
-
         return n;
     }
 
@@ -63,6 +63,13 @@ public class Queue {
         return front.var;
     }
 
+    public int peekBack(){
+        if(isEmpty()){
+            throw new IllegalStateException("Queue is Empty!");
+        }
+        return back.var;
+    }
+
     public int getSize(){
         return size;
     }
@@ -74,12 +81,12 @@ public class Queue {
         }
         displayQueue(front,0);
     }
-    private boolean displayQueue(Node n, int position){ // private function to recursively display the queue
+    private void displayQueue(Node n, int position){ // private function to recursively display the queue
         System.out.printf("Position %d: %d\n",position, n.var);
         if (n.tail == null){
-            return true;
+            return;
         }
-        return displayQueue(n.tail, position += 1); // recursive step
+        displayQueue(n.tail, position + 1); // recursive step
     }
 
     public void clear(){

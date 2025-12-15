@@ -68,12 +68,12 @@ public class Stack{
         displayStack(top, 0);
     }
 
-    private boolean displayStack(Node n, int position){ // private function to recursively display the stack
+    private void displayStack(Node n, int position){ // private function to recursively display the stack
         System.out.printf("Position %d: %d\n",position, n.var);
         if (n.tail == null){
-            return true;
+            return;
         }
-        return displayStack(n.tail, position += 1); // recursive step
+        displayStack(n.tail, position + 1); // recursive step
     }
 
     public boolean isEmpty(){

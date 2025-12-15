@@ -3,7 +3,7 @@ package linkedList;
 public class linkedList {
     int size;
     Node top;
-    private class Node{
+    private static class Node{
         int var;
         Node next;
         Node(int var){
