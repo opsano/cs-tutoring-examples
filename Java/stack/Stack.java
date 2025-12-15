@@ -18,7 +18,7 @@ public class Stack{
     }
 
     public void push(int var){ // push a new value to the top of the stack
-        if (isEmpty()){
+        if (isEmpty()){ // special case: first node in the stack
             top = new Node(var);
             size++;
             return;
@@ -50,7 +50,7 @@ public class Stack{
         return top.var;
     }
 
-    public int peeknxt(){ // not normally in a stack, but an interesting thing to add anyway
+    public int peekBelowTop(){ // not normally in a stack, but an interesting thing to add anyway
         if (top == null){
             throw new IllegalStateException("Stack is Empty!");
         }
@@ -76,8 +76,12 @@ public class Stack{
         return displayStack(n.tail, position += 1); // recursive step
     }
 
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return top == null;
     }
 
+    public void clear(){
+        top = null; // garbage collection will free remaining memory
+        size = 0;
+    }
 }

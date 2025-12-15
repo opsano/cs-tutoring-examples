@@ -23,7 +23,7 @@ public class Queue {
     public void enqueue(int var){
         Node temp = new Node(var); // create temp node with var
 
-        if(isEmpty()){ // if empty back and front point to same node
+        if(isEmpty()){ // if empty, back and front point to same node
             back = temp;
             front = back;
             size++;
@@ -80,5 +80,11 @@ public class Queue {
             return true;
         }
         return displayQueue(n.tail, position += 1); // recursive step
+    }
+
+    public void clear(){
+        front = null; // garbage collection will handle the rest of the queue
+        back = null;
+        size = 0;
     }
 }
