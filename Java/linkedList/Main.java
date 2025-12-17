@@ -7,5 +7,7 @@ public class Main {
         ll.prepend(2);
         ll.append(3);
         ll.display();
+        ll.clear();
+        ll.display();
     }
 }
