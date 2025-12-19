@@ -18,7 +18,8 @@ public class linkedList {
         head = null;
         tail = null;
     }
-    public void append(int var){
+
+    public void prepend(int var){ // puts value to top of list
         if (isEmpty()){
             head = new Node(var);
             tail = head; // head and tail will point to same node
@@ -30,7 +31,7 @@ public class linkedList {
         head = n; // made the head var = our new node. Still can access previous head through head.tail
         size++;
     }
-    public void prepend(int var){
+    public void append(int var){ // puts value to back of list
         if(isEmpty()){
             head = new Node(var);
             tail = head; // head and tail will point to same node
@@ -43,30 +44,60 @@ public class linkedList {
         size++;
     }
 
-    // TODO: WILL DO WHEN I FIGURE OUT TRAVERSAL
-    public int removeValue(int value){
+    private int removal(int valueOrIndex, TraversalMode mode){
+        Node dummy = new Node(0); // empty node pointing to head
+        dummy.next = head;
+        Node parent = traverse(dummy, -1, valueOrIndex, mode);
+        // will only be hit via value, since we do error checking prior to function in the index function
+        // oustide of that, we check both parent == null & parent.next == null because of the Node removed = parent.next;
+        // realistically, parent.next should never be null to begin with, but this is just extra safety checks
+        if (parent == null  || parent.next == null){
+            throw new ValueNotFoundException("Sorry! Passed in value not found!");
+        }
+        Node removed = parent.next; // removal node
+        int var = removed.var;
+        parent.next = removed.next; // cut out removed (link parent and removed's child)
+        head = dummy.next; // update head, if we don't change head, nothing changes, if we drop our head node, this changes it
 
+        if (removed == tail){
+            if (head == null){// empty list
+                tail = null;
+            }
+            else{ // the parent is the new end of our linked list, since we cut the previous bottom node
+                tail = parent;
+            }
+        }
+
+        size--;
+        return var;
+    }
+    public int removeValue(int value){
+        return removal(value, TraversalMode.BY_VALUE);
     }
     public int removeAtIndex(int index){
-        if (index > getSize()){
-            throw new IllegalLengthException("Sorry, passed in index is larger than the linked list!");
+        if(index >= getSize() || index < 0){
+            throw new IllegalLengthException("Sorry! Index out of bounds!");
         }
-        Node n = traverse(head, -1, index, TraversalMode.BY_INDEX);
-
+        return removal(index, TraversalMode.BY_INDEX);
     }
-
     // returns parent node of target
-    // TODO: FIX TO WORK CORRECTLY, NEEDS MASSIVE RESTRUCTURING
+    // node n(passed in var) should point to the head
     private Node traverse(Node n, int position, int traverseTarget, TraversalMode mode){
         if (n == null) return null;
         if (mode == TraversalMode.BY_INDEX){
-            if (position == traverseTarget - 1){
+            if (n.next == null){
+                return null;
+            }
+            else if (position == traverseTarget - 1){
                 return n;
             }
             return traverse(n.next, position + 1, traverseTarget, mode);
         }
         else if (mode == TraversalMode.BY_VALUE){
-            if (n.next.var == traverseTarget){
+            if (n.next == null){
+                return null;
+            }
+            else if (n.next.var == traverseTarget){
                 return n;
             }
             return traverse(n.next, position + 1, traverseTarget, mode);
@@ -76,13 +107,12 @@ public class linkedList {
         }
 
     }
-
-    /*TODO:
-        Implement the following:
-        remove by value
-        remove by index
-        search
-     */
+    public boolean search(int searchValue){
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node n = traverse(dummy, -1, searchValue, TraversalMode.BY_VALUE);
+        return (n != null);
+    }
     public void display(){
         if (isEmpty()){
             System.out.println("Linked List Empty!");
