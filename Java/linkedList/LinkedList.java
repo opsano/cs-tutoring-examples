@@ -1,10 +1,10 @@
 package linkedList;
 
-public class linkedList {
+public class LinkedList {
     // instance vars
-    int size;
-    Node head;
-    Node tail;
+    private int size;
+    private Node head;
+    private Node tail;
     private static class Node{
         int var;
         Node next;
@@ -13,7 +13,7 @@ public class linkedList {
             next = null;
         }
     }
-    linkedList(){ // constructor
+    public LinkedList(){ // constructor
         size = 0;
         head = null;
         tail = null;
@@ -49,7 +49,7 @@ public class linkedList {
         dummy.next = head;
         Node parent = traverse(dummy, -1, valueOrIndex, mode);
         // will only be hit via value, since we do error checking prior to function in the index function
-        // oustide of that, we check both parent == null & parent.next == null because of the Node removed = parent.next;
+        // outside of that, we check both parent == null & parent.next == null because of Node removed = parent.next;
         // realistically, parent.next should never be null to begin with, but this is just extra safety checks
         if (parent == null  || parent.next == null){
             throw new ValueNotFoundException("Sorry! Passed in value not found!");
