@@ -1,14 +1,13 @@
 package linkedList;
-
-public class LinkedList {
+public class LinkedList<T>{
     // instance vars
     private int size;
     private Node head;
     private Node tail;
-    private static class Node{
-        int var;
+    private class Node{
+        T var;
         Node next;
-        Node(int var){
+        Node(T var){
             this.var = var;
             next = null;
         }
@@ -19,22 +18,22 @@ public class LinkedList {
         tail = null;
     }
 
-    public void prepend(int var){ // puts value to top of list
+    public void prepend(T var){ // puts value to the top of the list
         if (isEmpty()){
             head = new Node(var);
-            tail = head; // head and tail will point to same node
+            tail = head; // head and tail will point to the same node
             size++;
             return;
         }
         Node n = new Node(var);
         n.next = head; // make our new node point to the head
-        head = n; // made the head var = our new node. Still can access previous head through head.tail
+        head = n; // made the head var = our new node. still can access previous head through head.tail
         size++;
     }
-    public void append(int var){ // puts value to back of list
+    public void append(T var){ // puts value to the back of the list
         if(isEmpty()){
             head = new Node(var);
-            tail = head; // head and tail will point to same node
+            tail = head; // head and tail will point to the same node
             size++;
             return;
         }
@@ -44,10 +43,10 @@ public class LinkedList {
         size++;
     }
 
-    private int removal(int valueOrIndex, TraversalMode mode){
-        Node dummy = new Node(0); // empty node pointing to head
+    private T removal(T value, int index, TraversalMode mode){
+        Node dummy = new Node(null); // empty node pointing to head
         dummy.next = head;
-        Node parent = traverse(dummy, -1, valueOrIndex, mode);
+        Node parent = traverse(dummy, -1, value, index, mode);
         // will only be hit via value, since we do error checking prior to function in the index function
         // outside of that, we check both parent == null & parent.next == null because of Node removed = parent.next;
         // realistically, parent.next should never be null to begin with, but this is just extra safety checks
@@ -55,7 +54,7 @@ public class LinkedList {
             throw new ValueNotFoundException("Sorry! Passed in value not found!");
         }
         Node removed = parent.next; // removal node
-        int var = removed.var;
+        T var = removed.var;
         parent.next = removed.next; // cut out removed (link parent and removed's child)
         head = dummy.next; // update head, if we don't change head, nothing changes, if we drop our head node, this changes it
 
@@ -71,46 +70,46 @@ public class LinkedList {
         size--;
         return var;
     }
-    public int removeValue(int value){
-        return removal(value, TraversalMode.BY_VALUE);
+    public T removeValue(T value){
+        return removal(value, 0,  TraversalMode.BY_VALUE);
     }
-    public int removeAtIndex(int index){
+    public T removeAtIndex(int index){
         if(index >= getSize() || index < 0){
             throw new IllegalLengthException("Sorry! Index out of bounds!");
         }
-        return removal(index, TraversalMode.BY_INDEX);
+        return removal(null, index, TraversalMode.BY_INDEX);
     }
-    // returns parent node of target
+    // return parent node of target
     // node n(passed in var) should point to the head
-    private Node traverse(Node n, int position, int traverseTarget, TraversalMode mode){
+    private Node traverse(Node n, int position, T valueTarget, int indexTarget, TraversalMode mode){
         if (n == null) return null;
         if (mode == TraversalMode.BY_INDEX){
             if (n.next == null){
                 return null;
             }
-            else if (position == traverseTarget - 1){
+            else if (position == indexTarget - 1){
                 return n;
             }
-            return traverse(n.next, position + 1, traverseTarget, mode);
+            return traverse(n.next, position + 1, valueTarget, indexTarget, mode);
         }
         else if (mode == TraversalMode.BY_VALUE){
             if (n.next == null){
                 return null;
             }
-            else if (n.next.var == traverseTarget){
+            else if (n.next.var.equals(valueTarget)){
                 return n;
             }
-            return traverse(n.next, position + 1, traverseTarget, mode);
+            return traverse(n.next, position + 1, valueTarget, indexTarget, mode);
         }
         else{
             return null; // just to make compiler happy
         }
 
     }
-    public boolean search(int searchValue){
-        Node dummy = new Node(0);
+    public boolean search(T searchValue){
+        Node dummy = new Node(null);
         dummy.next = head;
-        Node n = traverse(dummy, -1, searchValue, TraversalMode.BY_VALUE);
+        Node n = traverse(dummy, -1, searchValue, 0, TraversalMode.BY_VALUE);
         return (n != null);
     }
     public void display(){
@@ -121,7 +120,7 @@ public class LinkedList {
         displayRecursion(head, 0);
     }
     private void displayRecursion(Node n, int position){ // private function to recursively display the LinkedList
-        System.out.printf("Position %d: %d\n",position, n.var);
+        System.out.print("Position " + position + ": " + n.var + "\n");
         if (n.next == null){
             return;
         }
@@ -134,7 +133,7 @@ public class LinkedList {
         return size;
     }
     public void clear(){
-        // garbage collection will free rest of the memory
+        // garbage collection will free the rest of the memory
         head = null;
         tail = null;
         size = 0;
