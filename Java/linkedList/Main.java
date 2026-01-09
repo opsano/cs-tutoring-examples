@@ -23,8 +23,10 @@ public class Main {
         stringExample.prepend("Hello");
         stringExample.append("!!!");
         stringExample.display();
+        stringExample.update("World","Everyone");
+        stringExample.display();
         stringExample.removeAtIndex(0);
-        stringExample.removeValue("World");
+        stringExample.removeValue("Everyone");
         stringExample.removeAtIndex(0);
         stringExample.append("This is a string linked list");
         stringExample.append("This shows the power of java generics");

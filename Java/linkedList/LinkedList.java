@@ -18,6 +18,13 @@ public class LinkedList<T>{
         tail = null;
     }
 
+    public void update(T originalValue, T newValue){
+        Node dummy = new Node(null);
+        dummy.next = head;
+        Node n = traverse(dummy, -1, originalValue, 0, TraversalMode.BY_VALUE);
+        n.next.var = newValue;
+    }
+
     public void prepend(T var){ // puts value to the top of the list
         if (isEmpty()){
             head = new Node(var);
@@ -112,19 +119,31 @@ public class LinkedList<T>{
         Node n = traverse(dummy, -1, searchValue, 0, TraversalMode.BY_VALUE);
         return (n != null);
     }
+
+    // overloaded method, that displays with new line regularly
     public void display(){
         if (isEmpty()){
             System.out.println("Linked List Empty!");
             return;
         }
-        displayRecursion(head, 0);
+        displayRecursion(head, true);
     }
-    private void displayRecursion(Node n, int position){ // private function to recursively display the LinkedList
-        System.out.print("Position " + position + ": " + n.var + "\n");
-        if (n.next == null){
+    // boolean lets you determine if there should be a new line after using display
+    public void display(boolean newline){
+        if (isEmpty()){
+            System.out.println("Linked List Empty!");
             return;
         }
-        displayRecursion(n.next, position + 1); // recursive step
+        displayRecursion(head, newline);
+    }
+    private void displayRecursion(Node n, boolean newline){ // private function to recursively display the LinkedList
+        System.out.print(n.var);
+        if (n.next == null){
+            if (newline) System.out.println();
+            return;
+        }
+        System.out.print(" -> ");
+        displayRecursion(n.next, newline); // recursive step
     }
     public boolean isEmpty(){
         return head == null;
