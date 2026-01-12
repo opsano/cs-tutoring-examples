@@ -113,11 +113,12 @@ public class LinkedList<T>{
         }
 
     }
-    public boolean search(T searchValue){
+    public T search(T searchValue){
         Node dummy = new Node(null);
         dummy.next = head;
         Node n = traverse(dummy, -1, searchValue, 0, TraversalMode.BY_VALUE);
-        return (n != null);
+        if (n == null) return null;
+        return n.next.var;
     }
 
     // overloaded method, that displays with new line regularly
@@ -130,8 +131,12 @@ public class LinkedList<T>{
     }
     // boolean lets you determine if there should be a new line after using display
     public void display(boolean newline){
+        if (newline){ // base case is true, jump to base case if passed in true
+            display();
+            return;
+        }
         if (isEmpty()){
-            System.out.println("Linked List Empty!");
+            System.out.print("Linked List Empty!");
             return;
         }
         displayRecursion(head, newline);
