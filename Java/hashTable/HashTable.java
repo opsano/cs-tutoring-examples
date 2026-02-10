@@ -92,7 +92,7 @@ public class HashTable<K, V> { // takes a generic key, value pair
         return hashTable[pos].search(searchEntry).value;
     }
 
-    public V remove(K key){ // removes value from list and returns it
+    public V remove(K key){ // removes value from the list and returns it
         int pos = hash(key);
         entry<K, V> searchEntry = new entry<K,V>(key, null);
         V value = hashTable[pos].removeValue(searchEntry).value; // removes the key value pair
