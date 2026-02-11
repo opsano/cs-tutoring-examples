@@ -29,7 +29,8 @@ public class Main {
         /*
         * Here, you can see how it is used! The % operator tells the computer
         * that you are going to replace something, then the letter tells the computer
-        * what type of variable it is! Here is the list of common/useful format specifiers
+        * what type of variable it is! The name for this funky syntax is "format specifier",
+        * here is a list of common/useful format specifiers.
         * %s - Strings
         * %f - Floats or Doubles
         *       - %e puts it into scientific notation
