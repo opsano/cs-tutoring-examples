@@ -60,4 +60,15 @@ public class MyClass {
                 +------------------------------+
                 \n""",this.name, this.ID, this.position, this.wage, this.active);
     }
+    /*
+    * Now... you may have seen the word static every now and again, here I will quickly explain it
+    *
+    * Basically, static just means that you can access the classes function WITHOUT making an object.
+    * To show how this works, I made a function which prints a simple statement saying what the
+    * class does. It would make little sense for a specific object to tell me that, instead, the
+    * class itself should tell me that. You can see how it works in the main.java file!
+    */
+    static void whatDoesThisDo(){
+        System.out.println("This class holds employee data!");
+    }
 }
