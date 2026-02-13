@@ -26,7 +26,7 @@ public class Main {
         System.out.println(myVariable);
         System.out.println(myVariable);
         /*
-        * Now, if I wanted to change the variable, I would only have to do it in a single spot!
+        * Now, if I wanted to change the value, I would only have to do it in a single spot!
         * When programming in general, there are often many ways to tackle a problem. Some ways will
         * be more "correct" than others, and this is an example of an improvement. There are other ways we
         * can still improve this code, but from a learning standpoint, this is good.
@@ -40,6 +40,12 @@ public class Main {
         * long - same as int, just with a higher max value
         * float - fractions
         * double - fractions with higher accuracy
+        */
+        /*
+        * Little note, you don't need to initialize variables immediately, you can set them up but give them no value.
+        * This can be useful in some applications that require different scope (what blocks of code can see
+        * the variable). Furthermore, you can set variables with functions or class calls rather than manually yourself.
+        * This can be useful if the value depends on something else or if you don't know it until you run another function.
         */
     }
 }
