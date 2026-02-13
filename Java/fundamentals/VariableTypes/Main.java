@@ -42,7 +42,7 @@ public class Main {
         * double - fractions with higher accuracy
         */
         /*
-        * Little note, you don't need to initialize variables immediately, you can set them up but give them no value.
+        * Little note, you don't need to initialize variables immediately, you can set them up but give them no value (null).
         * This can be useful in some applications that require different scope (what blocks of code can see
         * the variable). Furthermore, you can set variables with functions or class calls rather than manually yourself.
         * This can be useful if the value depends on something else or if you don't know it until you run another function.
