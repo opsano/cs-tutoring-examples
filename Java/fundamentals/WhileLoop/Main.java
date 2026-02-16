@@ -5,7 +5,7 @@ public class Main {
         /*
         * When programming it might be helpful to iterate over something many times or do something indefinitely
         * until some condition is met. One of the ways to do this is through "while loops". These loops are easy
-        * to understand and easy to write, where the loop will continue to run "while" some condition is met.
+        * to understand and easy to write, where the loop will continue to run until "while" a condition is met.
         *
         * To demonstrate, while(true) creates an infinite loop, since the condition is always met. Another example
         * could be while(myVariable < 5), assuming that myVariable will be incremented every loop, it will go exactly 5
@@ -29,7 +29,7 @@ public class Main {
         * Do while loops will run the loop once before checking the condition, whereas regular while loops check
         * the condition before running.
         *
-        * to demonstrate, I have made counter much larger than variableToCount to, the regular loop wouldn't print
+        * to demonstrate, I have made counter much larger than variableToCountTo, the regular loop wouldn't print
         * anything, but our do-while will print exactly once
         */
         counter = 10000;
