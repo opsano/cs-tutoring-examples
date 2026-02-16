@@ -39,6 +39,12 @@ public class Main {
             }
         }
 
+        // Example of using previously defined variables (useful with functions/classes)
+        int startingValue;
+        int variableToCountTo = 5;
+        for(startingValue = 0; startingValue < variableToCountTo; startingValue++){
+            System.out.printf("Our current value is: %d \n",startingValue);
+        }
     }
 }
 
