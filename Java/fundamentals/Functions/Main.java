@@ -9,7 +9,7 @@ public class Main {
         * re-writing the whole thing.
         *
         * They are structured as follows:
-        * (scope) (static/nonstatic) (return type) (name) (arguments passed in)
+        * (scope (this is package-private by default) ) (static/nonstatic) (return type) (name) (arguments passed in)
         * arguments are variables that you specify are required for a function to operate. They must be in parentheses
         * after your function name & separated by commas. (ex: (String var1, int var2, boolean var3) )
         * When you have a return type (not void) you must have some statement within your function which returns a variable
