@@ -5,7 +5,7 @@ public class Main {
         /*
         * When programming it might be helpful to iterate over something many times or do something indefinitely
         * until some condition is met. One of the ways to do this is through "while loops". These loops are easy
-        * to understand and easy to write, where the loop will continue to run "while" some condition isn't met.
+        * to understand and easy to write, where the loop will continue to run until some condition is met.
         *
         * To demonstrate, while(true) creates an infinite loop, since the condition is always met. Another example
         * could be while(myVariable < 5), assuming that myVariable will be incremented every loop, it will go exactly 5
