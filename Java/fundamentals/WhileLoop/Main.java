@@ -29,7 +29,7 @@ public class Main {
         * Do while loops will run the loop once before checking the condition, whereas regular while loops check
         * the condition before running.
         *
-        * to demonstrate, I have made counter much larger than variableToCount to, the regular loop wouldn't print
+        * to demonstrate, I have made counter much larger than variableToCountTo, the regular loop wouldn't print
         * anything, but our do-while will print exactly once
         */
         counter = 10000;
