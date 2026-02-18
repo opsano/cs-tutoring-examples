@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] argv){
         /*
         * To print out to the console, use System.out.
-        * If you want a new line you can use println, written like System.out.println
+        * If you want a new line, you can use println, written like System.out.println
         */
         System.out.println("Hello World!");
-        /* if you don't want a new line, you can simply use print, like System.out.print
+        /* if you don't want a new line, you can use print, written like  System.out.print
         * you can use the characters "\n" to manually cause a new line as well
         */
         System.out.print("Hi, ");
@@ -19,10 +19,19 @@ public class Main {
         String variableToPrint = "This is printed from a variable!";
         System.out.println(variableToPrint);
         /*
+        * You are also able to add together (concatenate) multiple strings or
+        * variables together using the plus sign. Here I will show its use below:
+        */
+        String name = "Nathan";
+        System.out.println("My name is " + name + "\nI hope this is helpful!");
+        /*
         * The last thing that you'll probably end up using is the
         * printf statement. You can use it like the others (System.out.printf)
         * and it allows you to put both variables and written text together!
         * It also stands for Formatted Print, and does the same job as String.format()
+        *
+        * It essentially allows you to put the variables into the text itself rather than
+        * concatenating them as shown above.
         */
         int variableToFormat = 4;
         System.out.printf("My favorite number is %d!\n",variableToFormat);
