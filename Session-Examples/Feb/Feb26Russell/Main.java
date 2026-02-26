@@ -7,8 +7,8 @@ public class Main {
         int height = 600;
 
         // common convention for naming variables
-        int the_dog_variable = 5;
-        int theDogVariable = 5; // called camel case
+        String the_dog_variable = "buster";
+        String theDogVariable = "buster"; // called camel case
 
         // difference between float and double
         float myFloat = 55.5f; // REQUIRES the f
