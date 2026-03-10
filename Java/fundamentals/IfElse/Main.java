@@ -17,12 +17,12 @@ public class Main {
         else if(ourNumber > 100){
             System.out.println("It is greater than 100!");
         }
-        else{ // this will happen if the first two aren't true. There are no more possibilities, ourNumber must be < 100
+        else{ // This will happen if the first two aren't true. There are no more possibilities, "ourNumber" must be < 100
             System.out.println("It is less than 100!");
         }
         /*
-        * This might seem a little redundant since we already know the variable we set. But, imagine the variable is
-        * inputted by the user! We don't know what they might enter, so it is helpful to have different cases(things
+        * This might seem a little redundant since we already know the variable we set. But imagine if the user
+        * inputs the variable! We don't know what they might enter, so it is helpful to have different cases(things
         * that happen) based upon their input!
         */
     }

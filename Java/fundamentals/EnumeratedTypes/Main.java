@@ -14,20 +14,20 @@ public class Main {
         * While they often aren't required, they majorly improve the readability of your code (even if you think you won't
         * forget something later on, I can assure you that you will).
         *
-        * To demonstrate, imagine you are making a calendar:
+        * To demonstrate, imagine that you're making a calendar:
         * You want to separate by the days of the week. It would be totally valid to store each day as 0-6 (0 being monday
         * and 6 being sunday). However, to someone who didn't write it (or yourself a while from now) those numbers will
         * lose their meaning.
         *
         * It would be much better practice to use an enum to separate by MONDAY, TUESDAY, WEDNESDAY... so when you come
-        * back to your code later on (or if someone else reads it) these values will make sense immediately.
+        * back to your code later on (or if someone else reads it), these values will make sense immediately.
         *
         * To demonstrate how they are used, I will make a simple example below
         */
         enum weekdays{
             MONDAY{
-                // attaching data to an enum
-                // this particularly overrides the toString method to print the enum in the correct case
+                // attaching data to an enum,
+                // this in particular overrides the toString method to print the enum in the correct case
                 public String toString() { return "Monday"; }
             },
             TUESDAY{

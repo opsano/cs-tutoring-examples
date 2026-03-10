@@ -10,7 +10,7 @@ public class Main {
         *
         * To use a "for loop", you use the "for" keyword. Then within parenthesis put a
         * variable that acts as your counter, a condition which MUST result in either true or false,
-        * and an increment/decrement to the counter variable.
+        * and an increment/decrement to the counting variable from earlier.
         *
         * Each of those statements is separated by a semicolon, and the work that you do within the
         * loop is surrounded by curly brackets {}

@@ -5,17 +5,17 @@ public class Main {
         /*
         * When programming, we often need to re-use certain functionality such as getting input or processing certain
         * data. Rather than bloat your program by re-typing the same exact code over and over again, it's very helpful
-        * to write functions (also known as methods) which allow you to use the same lines of code over and over without
+        * to write functions (also known as methods). Methods allow you to use the same lines of code over and over without
         * re-writing the whole thing.
         *
         * They are structured as follows:
-        * (scope (this is package-private by default) ) (static/nonstatic) (return type) (name) (arguments passed in)
+        * (scope (optional)) (static/nonstatic (optional)) (return type) (name) (arguments passed in)
         * arguments are variables that you specify are required for a function to operate. They must be in parentheses
-        * after your function name & separated by commas. (ex: (String var1, int var2, boolean var3) )
-        * When you have a return type (not void) you must have some statement within your function which returns a variable
+        * after your function name and are separated by commas. (ex: (String var1, int var2, boolean var3))
+        * When you have a return type (not void), you must have some statement within your function that returns a variable
         * of that type. (ex: return var1;)
         *
-        * If you don't know what static does, the classes tutorial explains that.
+        * If you don't know what static does, the classes tutorial goes into that.
         *
         * To demonstrate, I will write two functions, one that gets user input for a string of text, and then one that
         * returns how many words it contains.
@@ -26,6 +26,8 @@ public class Main {
         System.out.printf("Your input had %d words!", words);
     } // end main
 
+
+    // Functions written here
     static String getInput(){
         Scanner kbd = new Scanner(System.in);
         String input = "";
@@ -46,7 +48,7 @@ public class Main {
         int numWords = 0;
         userInput = userInput.trim(); // gets rid of trailing spaces
 
-        // this isn't a perfect solution, but works for this example, counts spaces since each word is separated by spaces
+        // this isn't a perfect solution, but works for this example, counts spaces since spaces separate each word
         for(int i = 0; i < userInput.length(); i++) {
             if (userInput.charAt(i) == ' '){
                 numWords++;
