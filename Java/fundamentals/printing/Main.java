@@ -45,7 +45,7 @@ public class Main {
         *       - %e puts it into scientific notation
         * %b - booleans
         * %c - single char's
-        * %d - base 10
+        * %d - base 10 (whole numbers)
         *       - %o represents numbers in octal
         *       - %x represents numbers in hex
         */
