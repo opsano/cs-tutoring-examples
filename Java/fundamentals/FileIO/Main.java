@@ -6,18 +6,15 @@ public class Main {
         /*
         * As a programmer you may run into situations where you want to export or save output from a program.
         * To do this we create files containing the data we want to save. There are many different types of files
-        * but here I will go over simple creation of a file as well as the different to implement it
+        * but here I will go over the different ways to create files.
         *
-        * To do this, we are going to work with the PrintWriter object, which is very similar to the Scanner object.
+        * To do create files, we are going to work with the PrintWriter object, which is very similar to the Scanner object.
         * The difference between the two is that Scanner reads data and PrintWriter writes data.
         *
         * Let's quickly create a PrintWriter object.
         */
         PrintWriter fileOutput = new PrintWriter("MyFileOutput.txt");
         /*
-        * Creating a PrintWriter object is very similar to a Scanner object. You first use the PrintWriter keyword, give the
-        * object a name (in my case fileOutput), and give it a value (new PrintWriter(fileName))
-        *
         * If you are getting an error when writing this code it is most likely because you aren't handling a possible
         * exception that PrintWriter can throw.
         *
@@ -33,8 +30,8 @@ public class Main {
         * 2: You can encase the PrintWriter in a "try-catch" block
         *   - This is the preferred method, because it allows you to specify what should happen if an exception occurs.
         *
-        * I will go over how to perform the second way at the bottom of the file, however for the time being, I will explain
-        * how to use our new PrintWriter object.
+        * I will go over how to perform the second way to fix it at the bottom of the file, however for the time being,
+        * I will explain how to use our new PrintWriter object.
         */
         /*-------------------------------------------------------------------------------------------------------------*/
         /*
@@ -49,7 +46,7 @@ public class Main {
         * Now lets finally write some data!
         *
         * To do this we will use the PrintWriters built in "print" function (there are other varieties much like System.out.print)
-        * This line prepares the object to put our data into the file. We can use as many prints as we want.
+        * This line prepares the object to put our data into the file, and we can use as many prints as we want (here I use two)
         *
         * Let's quickly do that.
         */
@@ -74,8 +71,8 @@ public class Main {
         /*
         * The other way to handle the exception is the preferred one. There are two ways to achieve it:
         *
-        * First is the regular try-catch block, which "try's" to run some code, and if an exception occurs it "catches" it
-        * and will do whatever you specify should happen if an exception occurs.
+        * First is the regular try-catch block, which "tries" to run some code, and if an exception occurs it "catches" it.
+        * It will then proceed to do whatever you specify should happen within the "catch" block.
         * You can see how it is performed below:
         */
         try{
@@ -83,14 +80,14 @@ public class Main {
             tryCatchExample.println("This was written in a try-catch!");
             tryCatchExample.close();
         }catch(FileNotFoundException e){
-            // here I just told the computer to say that an error occurred and terminate the program gracefully
+            // here I just told the computer to say that an exception occurred and terminate the program gracefully
             System.out.println("Unable to create a file");
             return;
         }
-        /* Second is the "Try-With-Resources", it is fundamentally no different from before, however automatically closes
-        * the file object for you. This is considered best practice since there is no way a user could forget to
-        * close a PrintWriter object AND it will always close (even if different exception occurs).
-        * You can see it in action below:
+        /* Second is "Try-With-Resources", it is very similar to before, except this one automatically closes
+        * the file object for you. This is considered best practice since there is no way a programmer could forget to
+        * close a PrintWriter object AND it will always close (even if a different exception occurs).
+        * You can see how it is performed below:
         */
         try(PrintWriter tryWithResourcesExample = new PrintWriter("TryWithResourcesExample.txt")){
             tryWithResourcesExample.println("This was in the try-with-resources!");
@@ -99,9 +96,9 @@ public class Main {
             return;
         }
         /*
-        * Notice how I don't need to close the object I made AND the object is initialized within the "try" declaration?
-        * It is very similar to a for-loop, where your temporary counter (assuming you don't pass an external one in) will
-        * be destroyed after the block ends.
+        * Notice how I don't need to close the object at the end AND the objects' initialized within the "try" declaration?
+        * the idea is very similar to a for-loop, where your temporary counter (assuming you don't pass an external one in) will
+        * be destroyed after the block ends AND can only be used within the for loop.
         *
         * This removes the possibility of using a dead PrintWriter object, and gets rid of any possibility of a memory leak
         */
