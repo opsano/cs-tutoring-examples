@@ -1,4 +1,4 @@
-package fundamentals.FileIO;
+package fundamentals.FileOutput;
 import java.io.FileNotFoundException; // PrintWriter throws this exception and we must handle it
 import java.io.PrintWriter; // We will be using PrintWriter to write to files (this is similar to scanner)
 public class Main {
