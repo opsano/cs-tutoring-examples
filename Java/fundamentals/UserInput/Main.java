@@ -71,5 +71,6 @@ public class Main {
         }
         num = kbd.nextInt(); // grabs the input from the buffer we prepared above and clears the buffer
         System.out.printf("Your input is %d\n", num);
+        kbd.close();
     }
 }
