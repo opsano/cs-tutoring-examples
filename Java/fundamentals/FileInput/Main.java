@@ -11,7 +11,7 @@ public class Main {
         * So far, we have only used the Scanner to get input from a user through the console. But in reality,
         * the scanner can do way more than just console input.
         *
-        * In this tutorial, I am going to demonstrate how to get data from a file and manipulate it!
+        * In this tutorial, I am going to demonstrate how to get data from a file!
         *
         * Let's start by getting our file as an object!
         */
