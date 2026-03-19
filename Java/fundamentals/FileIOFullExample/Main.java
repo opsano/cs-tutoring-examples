@@ -13,8 +13,8 @@ public class Main {
         *
         * So, let's first understand the goal of this program:
         * In this program, I want to take in a set of grades from a file ("grades.txt"). Using that set of
-        * grades, I want to find the mean, median, mode, and standard deviation.
-        * After finding those statistics, I will add them to the file, and save it.
+        * grades, I want to find the mean and median.
+        * After finding those statistics, I will add them to a file, and save it.
         *
         * Let's quickly make a list of problems we need to overcome!
         * TODO:
@@ -35,8 +35,9 @@ public class Main {
         double[] grades; // this will be used to store all of our grades from our file
         int numberOfGrades = 0; // for sizing our array
 
-        try(Scanner reader = new Scanner(inFile); Scanner counter = new Scanner(inFile)){
+        try(Scanner counter = new Scanner(inFile); Scanner reader = new Scanner(inFile)){
             // find the number of items in our file!
+            System.out.println("Finding Number of Items...");
             while(counter.hasNextDouble()){
                 numberOfGrades++;
                 counter.nextDouble(); // just to advance to the next number
@@ -45,24 +46,88 @@ public class Main {
             grades = new double[numberOfGrades]; // make our array of the size we just found
 
             // put all the numbers from our file into our array
+            System.out.println("Gathering Data...");
             for(int i = 0; i < grades.length; i++){
                 grades[i] = reader.nextDouble();
             }
         }catch(FileNotFoundException e) {
             System.out.println("File Not Found!");
+            e.printStackTrace();
+            return;
+        }catch(Exception e){
+            System.out.println("Something else went wrong!");
+            e.printStackTrace();
             return;
         }
         // ------------------------------------------------------------------------------
 
         /*
         * Sort Grades.txt (see bubbleSort the method at the end of the file)
-        * Find the mean, median, and mode
+        * Find the mean and median
         * ------------------------------------------------------------------------------
         */
+        System.out.println("Sorting Data...");
         bubbleSort(grades);
+
+        System.out.println("Finding Mean...");
         double mean = mean(grades);
 
+        System.out.println("Finding Median...");
+        double median = median(grades);
+        // ------------------------------------------------------------------------------
+        /*
+        * Write data to our file
+        */
+        try(PrintWriter outfile = new PrintWriter("Java/fundamentals/FileIOFullExample/Results.txt")){
+            System.out.println("Writing Data to File...");
+            outfile.printf("""
+                    +-----------------------------------
+                    | Statistics found from %s
+                    | Mean   - %.2f
+                    | Median - %.2f
+                    +-----------------------------------"""
+                    ,inFile.getName(), mean, median);
+        }catch(FileNotFoundException e) {
+            System.out.println("File Not Found!");
+            e.printStackTrace();
+            return;
+        }catch(Exception e){
+            System.out.println("Something else went wrong!");
+            e.printStackTrace();
+            return;
+        }
+        System.out.println("Done!");
+        // ------------------------------------------------------------------------------
+    }// end main
 
+    /*
+    * This gets the median (middle) value of all the grades.
+    * There are two cases for this:
+    * 1: we have a set with an odd number of entries
+    *   - here we just take the middle value, since there is a distinct middle
+    * 2: we have a set with an even number of entries
+    *   - here, we take the two values around the middle, sum them, and then divide by 2 (the mean)
+    */
+    static double median(double[] array){
+        int sizeOfArray = array.length;
+        int middle = sizeOfArray / 2;
+        if (sizeOfArray % 2 == 0){ // Even
+            /*
+            * In this case, we are getting the TWO middle values, and then taking the average of them.
+            * Here is a written example:
+            * say we have 6 numbers: 1 3 5 7 9 10
+            * since we have no "true" middle, we take the average of the two middle numbers.
+            * 6/2 = 3 which in our case is '7' since that's the value at array[3].
+            * Now we need to get the number '5' here, which is at array[2], which is just 3-1.
+            * Then we just take the average, which is the sum / 2.
+            */
+             double total = 0;
+             total += array[middle];
+             total += array[middle - 1];
+             return total / 2;
+        } else{ // Odd;
+            return array[middle];
+        }
     }
 
     /*
@@ -70,7 +135,7 @@ public class Main {
     * values.
     */
     static double mean(double[] array){
-        double sizeOfArray = array.length;
+        int sizeOfArray = array.length;
         double total = 0;
         for(double value : array){
             total += value;
@@ -84,7 +149,7 @@ public class Main {
     * we swap them. We loop over the array until we determine that the array is sorted (no swaps)
     */
     static void bubbleSort(double[] array){
-        double sizeOfArray = array.length;
+        int sizeOfArray = array.length;
         double temp; // used to swap two values
         boolean swapped; // tells us if our array is sorted
         do{
