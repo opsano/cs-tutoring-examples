@@ -10,16 +10,21 @@ public class FuelGauge {
         return gallons;
     }
     public void incrementFuel() {
-        // TODO: Add 1 gallon only if the tank is not full
+        // Add 1 gallon only if the tank is not full
         if (gallons < MAX_FUEL){
             gallons++;
         }
         else{
-            System.out.println("Fuel at max capacity!");
+            System.out.println("Fuel at Max Capacity!");
         }
     }
     public void decrementFuel() {
-        // TODO: Remove 1 gallon only if there is fuel left
-        // HINT: if (gallons > 0) {
+        // Remove 1 gallon only if there is fuel left
+        if (gallons > 0) {
+            gallons--;
+        }
+        else{
+            System.out.println("Fuel Empty!");
+        }
     }
 }

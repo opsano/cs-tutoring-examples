@@ -2,8 +2,11 @@ package April.April22Trinity;
 
 public class Main {
     public static void main(String[] Args){
+        // objects
         FuelGauge fuelGauge = new FuelGauge();
         Odometer odometer = new Odometer(0, fuelGauge);
+
+
         System.out.println("Filling up with gas");
         // TODO: Fill the tank to 15 gallons (Hint: while loop)
         // Display each gallon added
