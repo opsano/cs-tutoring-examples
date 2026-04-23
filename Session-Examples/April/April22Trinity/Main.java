@@ -2,6 +2,9 @@ package April.April22Trinity;
 
 public class Main {
     public static void main(String[] Args){
+
+
+
         // objects
         FuelGauge fuelGauge = new FuelGauge();
         Odometer odometer = new Odometer(0, fuelGauge);
@@ -21,6 +24,7 @@ public class Main {
         // At 1 gallon remaining, print "Time to get gas!"
         // When empty, print final message
 
+        // examples of getters and setters
         getterAndSetter mygetterAndSetter = new getterAndSetter();
         mygetterAndSetter.setMyInt(5);
         System.out.println(mygetterAndSetter.getMyInt());
