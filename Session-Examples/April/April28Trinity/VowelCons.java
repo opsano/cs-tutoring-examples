@@ -7,14 +7,12 @@ public class VowelCons {
 
     // Constructor
     public VowelCons(String text) {
-        // TODO: Initialize the instance variable
+        this.text = text;
     }
 
     // Method to count vowels
     public int countVowels() {
         int count = 0;
-
-        // TODO:
         // Loop through each character in the string
         // Convert character to lowercase
         // Check if it is a vowel (a, e, i, o, u)
@@ -22,37 +20,38 @@ public class VowelCons {
 
         for (int i = 0; i < text.length(); i++) {
             char ch = Character.toLowerCase(text.charAt(i));
-
-            // Example condition (complete this)
-            // if (/* condition for vowel */) {
-            //    count++;
-            // }
+                if (ch == 'a' || ch == 'i' || ch == 'e' || ch == 'o' || ch == 'u'){
+                    count++;
+                }
         }
-
         return count;
     }
 
     // Method to count consonants
     public int countConsonants() {
-        int count = 0;
-
-        // TODO:
-        // Loop through each character
-        // Check if character is a letter
-        // Check if it is NOT a vowel
-        // Increment count
+        int count = 0; // number of total letters
+        int vowels = countVowels();// number of vowels
 
         for (int i = 0; i < text.length(); i++) {
             char ch = Character.toLowerCase(text.charAt(i));
-
-            // if (/* condition to check if ch is letter */) { // Check lab hints
-                // TODO: check if NOT a vowel
-                // if (/* condition for consonant */) {
-                    //count++;
-                // }
-            //}
+            if (Character.isAlphabetic(ch)){ // if it is a letter, increment count
+                count++;
+            }
         }
+        // subtract the number of vowels from the total number of letters
+        return count - vowels;
 
+        /*!!!!OR!!!!*/
+
+        for (int i = 0; i < text.length(); i++){
+            char ch = Character.toLowerCase(text.charAt(i));
+            if (Character.isAlphabetic(ch)){
+                if (ch != 'a' && ch != 'e' && ch != 'i'&& ch != 'o' && ch != 'u'){
+                    count++;
+                }
+            }
+        }
         return count;
+
     }
 }
