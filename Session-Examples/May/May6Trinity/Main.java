@@ -11,9 +11,9 @@ public class Main {
 }
 
 class Employee{
-    private String name;
-    private String job;
-    private double wage;
+    protected String name;
+    protected String job;
+    protected double wage;
 
     Employee(String name, String job, double wage){
         this.name = name;
@@ -62,7 +62,7 @@ class Manager extends Employee{
     @Override
     public String getName(){
         System.out.println("I am the best");
-        return super.getName();
+        return super.name;
     }
 }
 
