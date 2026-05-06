@@ -43,7 +43,7 @@ public class VowelCons {
 
         /*!!!!OR!!!!*/
 
-        for (int i = 0; i < text.length(); i++){
+        /*for (int i = 0; i < text.length(); i++){
             char ch = Character.toLowerCase(text.charAt(i));
             if (Character.isAlphabetic(ch)){
                 if (ch != 'a' && ch != 'e' && ch != 'i'&& ch != 'o' && ch != 'u'){
@@ -52,6 +52,6 @@ public class VowelCons {
             }
         }
         return count;
-
+        */
     }
 }
