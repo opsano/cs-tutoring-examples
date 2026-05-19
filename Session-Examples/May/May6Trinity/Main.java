@@ -1,5 +1,4 @@
 package May.May6Trinity;
-
 public class Main {
     public static void main(String[] Args){
         Employee e1 = new Employee("Joe", "Editor", 43.21);
