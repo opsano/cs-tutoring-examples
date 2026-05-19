@@ -5,11 +5,11 @@ public class Main {
     public static void main(String[] Args){
         Scanner kbd = new Scanner(System.in);
         System.out.print("Enter a number: ");
-
+        int myInt;
         boolean inputValid;
         do{
             try{
-                int myInt = kbd.nextInt();
+                myInt = kbd.nextInt();
                 inputValid = true;
             }catch(InputMismatchException myException){
                 kbd.next();
@@ -18,5 +18,14 @@ public class Main {
                 inputValid = false;
             }
         } while(!inputValid);
+
+        String[] myArray = new String[3];
+        //OR//
+        String[] myOtherArray = {"hello", "world", "!"};
+
+        // enhanced for loop
+        for(String myString : myOtherArray){
+            System.out.println(myString);
+        }
     }
 }
