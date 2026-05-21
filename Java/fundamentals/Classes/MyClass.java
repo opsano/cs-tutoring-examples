@@ -10,9 +10,11 @@ public class MyClass {
     * act as though it was an employee at a company. For this I need a name, an ID, a position, a wage,
     * and a check if they are currently hired.
     */
-    private String name, ID, position;
-    private float wage;
-    private boolean active;
+    private final String name;
+    private final String ID;
+    private final String position;
+    private final float wage;
+    private final boolean active;
     /*
     * Above, the keyword Private, just says that we won't be able to access these variables outside
     * of THIS file (main will not be able to see these variables).

@@ -49,7 +49,8 @@ class Employee{
         return String.format("""
                 Name: %s
                 Job:  %s
-                Wage: %.2f\n""",name, job, wage);
+                Wage: %.2f
+                """,name, job, wage);
     }
 }
 

@@ -18,7 +18,6 @@ public class Main {
             String fileInput = kbd.nextLine(); // gets user input
             outFile.printf("this is my input: %s",fileInput); // puts input into file
         }catch (Exception e) { // catches exceptions (program crashes)
-            return;
         }
 
     }

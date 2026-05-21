@@ -50,7 +50,7 @@ public class Main {
             };
             // example of a method within an enum
             public String getDescription(){
-                return "It is a " + this.toString();
+                return "It is a " + this;
             }
         }
 

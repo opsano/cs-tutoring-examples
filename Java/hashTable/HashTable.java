@@ -22,8 +22,8 @@ public class HashTable<K, V> { // takes a generic key, value pair
         // Overrides the equals method within our linked list, allows us to correctly compare entry objects
         public boolean equals(Object o){
             if (this == o) return true; // checks if it is the exact same object in memory
-            if (!(o instanceof entry)) return false; // if not an entry, return false
-            entry<?,?> other = (entry<?,?>) o; // cast argument from Object to entry
+            if (!(o instanceof entry<?, ?> other)) return false; // if not an entry, return false
+            // cast argument from Object to entry
             // will be used like hashtable[pos].equals(new entry), so we check hashtable[pos].key equals other.key
             return this.key.equals(other.key);
         }

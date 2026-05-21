@@ -3,7 +3,7 @@ package April.April28Trinity;
 public class VowelCons {
 
     // Instance variable
-    private String text;
+    private final String text;
 
     // Constructor
     public VowelCons(String text) {

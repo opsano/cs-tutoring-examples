@@ -13,7 +13,7 @@ class Employee{
     // belongs to the class itself rather than any individual instances of it, will persist across any individual object
     private static int numberOfEmployees;
 
-    private String name; // belongs to objects, the class itself can't see this, and objects can't see the static variable.
+    private final String name; // belongs to objects, the class itself can't see this, and objects can't see the static variable.
     private int wage;
     Employee(){
         //numberOfEmployees++; // every time we make an employee, we want to increase the total number of employees

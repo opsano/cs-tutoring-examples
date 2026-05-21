@@ -7,7 +7,7 @@ public class Main {
 }
 
 class Rainfall {
-    private double[] rainfall;
+    private final double[] rainfall;
 
     public Rainfall(double[] rainfall) {
         this.rainfall = rainfall;

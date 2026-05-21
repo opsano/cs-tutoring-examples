@@ -2,7 +2,7 @@ package April.April22Trinity;
 
 public class Odometer {
     private int mileage;
-    private FuelGauge fuelGauge;
+    private final FuelGauge fuelGauge;
     private int milesSinceLastFillUp;
     public Odometer(int mileage, FuelGauge fuelGauge) {
         this.mileage = mileage;

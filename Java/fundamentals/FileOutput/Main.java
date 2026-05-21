@@ -93,7 +93,6 @@ public class Main {
             tryWithResourcesExample.println("This was in the try-with-resources!");
         }catch(FileNotFoundException e){
             System.out.println("Unable to create file");
-            return;
         }
         /*
         * Notice how I don't need to close the object at the end AND the objects' initialized within the "try" declaration?
