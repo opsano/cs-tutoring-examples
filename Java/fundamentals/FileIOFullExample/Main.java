@@ -20,15 +20,12 @@ public class Main {
         * TODO:
         *  get grades.txt as a file object
         *  open and read grades.txt
-        *  put grades.txt into a format that lets us iterate over it
+        *  put grades.txt into a format that lets us iterate over 
         *  sort grades.txt (for median)
-        *  find mean, median, mode, std deviation
+        *  find mean, median
         *  write data to our file & save it
         */
         /*
-        * Get grades.txt as a file object
-        * read the file object
-        * Put numbers from file into a format we can use
         * ------------------------------------------------------------------------------
         */
         File inFile = new File("Java/fundamentals/FileIOFullExample/grades.txt");
